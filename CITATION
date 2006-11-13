@@ -1,0 +1,16 @@
+citHeader("To cite TRAMPR in publications, please use:")
+
+citEntry(entry="Manual",
+    	 title="TRFLP Analysis and Matching Package for R",
+	 author=personList(person("Rich", "FitzJohn", "G"),
+           person("Ian", "Dickie", "A")),
+         organization="Landcare Research",
+         address="Lincoln, New Zealand",
+         year=2006,
+         note="Version 0.9-1",
+         textVersion=paste("FitzJohn RG, Dickie IA (2006)",
+           "TRAMPR: TRFLP Analysis and Matching Package for R.",
+           "R package version 0.9-1"))
+
+citFooter("A paper is forthcoming and will replace this citation.",
+          "Please let us know if you find this package useful!")
