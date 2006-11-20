@@ -39,12 +39,16 @@ valid.TRAMPknowns <- function(x) {
   if ( !is.TRAMPknowns(x) )
     stop("Not a TRAMPknowns object")
 
+  data.cols <- c("knowns.fk", "primer", "enzyme", "size")
   must.contain.cols(x$info, c("knowns.pk", "species"))
-  must.contain.cols(x$data, c("knowns.fk", "primer", "enzyme", "size"))
+  must.contain.cols(x$data, data.cols)
   if ( any(duplicated(x$info$knowns.pk)) )
     stop("x$info$knowns.pk must be unique")
   if ( !(is.numeric(x$info$knowns.pk) && all(x$info$knowns.pk > 0)) )
     stop("Numeric, positive knowns.pk required")
+  if ( any(is.na(x$data[data.cols])) )
+    stop("NA values are not permitted for columns: ",
+         paste(data.cols, collapse=", "))
 
   data.info <- x$data[c("knowns.fk", "primer", "enzyme")]
   if ( any(duplicated(data.info)) ) {
@@ -273,7 +277,7 @@ plot.TRAMPknowns <- function(x, cex=1, name="species", pch=1,
   par(mar=c(5.1, 0, 2, 0), oma=rep(1, 4))
 
   ## (1) Dendrogram:
-  plot(cluster, leaflab="none", horiz=TRUE, xlab="Size (bp)",
+  plot(cluster, leaflab="none", horiz=TRUE, xlab="Distance",
        edgePar=list(lwd=cex))
   mtext("Dendrogram", 3, line=1)
   usr <- par("usr")

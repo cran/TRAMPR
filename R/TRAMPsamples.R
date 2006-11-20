@@ -21,19 +21,20 @@ is.TRAMPsamples <- function(x)
 valid.TRAMPsamples <- function(x) {
   if ( !is.TRAMPsamples(x) )
     stop("Not a TRAMPsamples object")
+  data.cols <- c("sample.fk", "primer", "enzyme", "size", "height")
   must.contain.cols(x$info, c("sample.pk", "species"))
-  must.contain.cols(x$data, c("sample.fk", "primer", "enzyme", "size",
-                              "height"))
+  must.contain.cols(x$data, data.cols)
   if ( any(duplicated(x$info$sample.pk)) )
     stop("x$info$sample.pk must be unique")
   if ( !(is.numeric(x$info$sample.pk) && all(x$info$sample.pk > 0)) )
     stop("Numeric, positive sample.pk required")
-
+  if ( any(is.na(x$data[data.cols])) )
+    stop("NA values are not permitted for columns: ",
+         paste(data.cols, collapse=", "))
   orphan <- setdiff(x$data$sample.fk, x$info$sample.pk)
   if ( length(orphan) > 0 )
     stop(sprintf("Orphaned data with no info: (sample.fk: %s)",
                  paste(orphan, collapse=", ")))
-  
   invisible(TRUE)
 }
 

@@ -1,6 +1,6 @@
 Package: TRAMPR
 Title: TRFLP Analysis and Matching Package for R
-Version: 1.0-1
+Version: 1.0-2
 Author: Rich FitzJohn & Ian Dickie
 Maintainer: Rich FitzJohn <rich.fitzjohn@gmail.com>
 License: GPL v2
@@ -14,4 +14,4 @@ Description: TRAMPR is an R package for matching terminal restriction
 	rich set of statistical functions.  TRAMPR also resolves the
 	issues of multiple TRFLP profiles within a species, and shared
 	TRFLP profiles across species.
-Packaged: Mon Nov 13 12:39:10 2006; FitzJohnR
+Packaged: Mon Nov 20 12:28:40 2006; FitzJohnR

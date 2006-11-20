@@ -137,7 +137,8 @@ load.abi <- function(file, file.template, file.info,
 
     ## Now, do this:
     i <- match(info$sample.index, info.extra$sample.index)
-    info <- cbind(info, subset(info.extra, select=-sample.index)[i,])
+    info <- cbind(info, subset(info.extra,
+                               select=-sample.index)[i,,drop=FALSE])
   } else {
     cat("No info file found, will create default.\n")
   }

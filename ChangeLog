@@ -1,3 +1,18 @@
+2006-11-16  Rich FitzJohn  <fitzjohnr@landcareresearch.co.nz>
+
+	* R/TRAMPsamples.R, R/TRAMPknowns.R: valid.TRAMPsamples() and
+	valid.TRAMPknowns() both assert that no "data" columns
+	(sample.fk/knowns.fk, primer, enzyme, size, height) can have
+	missing (NA) values (related to load.abi.R fix below).
+
+	* DESCRIPTION: Bumped to 1.0-2 (via 1.0-2, which was uploaded to
+	CRAN).
+
+	* man/TRAMPsamples.Rd: Removed obsolete note
+
+	* R/load.abi.R: Minor bugs: Filter incomplete data when loading.
+	Add drop=FALSE when indexing to stop data.frame->vector coersion.
+
 2006-10-31  Rich FitzJohn  <fitzjohnr@landcareresearch.co.nz>
 
 	* inst/doc/TRAMPdemo.Rnw, man/*.Rd: Changes from Christine Bezar's
