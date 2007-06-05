@@ -8,7 +8,7 @@
   original objects.}
 
 \usage{
-combine.TRAMPsamples(x, y, rewrite.sample.pk=FALSE, ...)
+\method{combine}{TRAMPsamples}(x, y, rewrite.sample.pk=FALSE, ...)
 }
 
 \arguments{

@@ -100,7 +100,7 @@ load.abi <- function(file, file.template, file.info,
   data <- data[c(data.cols, setdiff(names(data), data.cols))]
 
   ## (TOCHECK) Remove cases where any of the data.cols are missing.
-  data <- data[complete.cases(data),]
+  data <- data[complete.cases(data[data.cols]),]
 
   ## (3) Create "info" data.frame
   if ( missing(file.info) )
@@ -190,4 +190,18 @@ read.abi <- function(file) {
   d$sample.peak <- as.integer(d$sample.peak)
 
   subset(d, select=-dye.sample.peak)
+}
+
+## Peakscanner apparently produces files that are subtly different
+## from abi genemapper files.  see ?peakscanner.to.genemapper for more
+## information (in man/load.abi.Rd)
+peakscanner.to.genemapper <- function(filename, output) {
+  if ( missing(output) )
+    output <- sub("^(.*)\\.[^.]*$", "\\1.txt", filename)
+  if ( filename == output )
+    stop(sprintf("Can't read and write from same file (%s)",
+                 dQuote(filename)))
+  d <- read.csv(filename, check.names=FALSE, as.is=TRUE)
+  d[["Dye/Sample Peak"]] <- gsub(" ", "", d[["Dye/Sample Peak"]])
+  write.table(d, output, sep="\t", row.names=FALSE)
 }

@@ -15,7 +15,7 @@
 
 \usage{
 \method{update}{TRAMP}(object, sample.fk=labels(object$samples), grouped=FALSE,
-       ignore=TRUE, delay.rebuild=FALSE, default.species=NA,
+       ignore=TRUE, delay.rebuild=FALSE, default.species=NULL,
        filename.fmt="TRAMP_\%d.pdf", ...)
 }
 

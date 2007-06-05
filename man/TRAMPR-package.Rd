@@ -58,9 +58,18 @@
 }
 
 \references{
+  Dicke IA, FitzJohn RG 2007: Using terminal-restriction fragment length
+  polymorphism (T-RFLP) to identify mycorrhizal fungi; a methods
+  review. Mycorrhiza 17: 259-270.
+  
   Dickie IA, Xu B, Koide RT 2002.  Vertical distribution of
   ectomycorrhizal hyphae in soil as shown by T-RFLP analysis.  New
-    Phytologist 156: 527-535.
+  Phytologist 156: 527-535.
+
+  FitzJohn RG, Dickie IA 2007: TRAMPR: An R package for analysis and
+  matching of terminal-restriction fragment length polymorphism (TRFLP)
+  profiles.  Molecular Ecology Notes
+  [doi:10.1111/j.1471-8286.2007.01744.x].
 }
 
 \keyword{package}

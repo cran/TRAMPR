@@ -54,7 +54,7 @@ summary.TRAMPsamples <- function(object, include.info=FALSE, ...) {
   res$code <- paste(res$primer, res$enzyme, sep="_")
   res <- tapply(res$sample.fk, res[c("sample.fk", "code")], length)
 
-  res <- res[match(object$info$sample.pk, rownames(res)),-1]
+  res <- res[match(object$info$sample.pk, rownames(res)),,drop=FALSE]
   rownames(res) <- object$info$sample.pk
 
   if ( include.info )

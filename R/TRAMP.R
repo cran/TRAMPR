@@ -297,12 +297,12 @@ TRAMP.plotone <- function(x, sample.fk, grouped=FALSE, ignore=FALSE,
   if ( all.samples ) {
     d.samples <- if (all.samples.global)
       x$samples$data else sample.data
-    enzyme.primer.sample <- unique(d.samples[c("enzyme", "primer")])
+    enzyme.primer <- unique(d.samples[c("enzyme", "primer")])
   }
   if ( all.knowns ) {
     if ( all.samples )
       enzyme.primer <-
-        unique(rbind(x$enzyme.primer, enzyme.primer.sample))
+        unique(rbind(x$enzyme.primer, enzyme.primer))
     else
       enzyme.primer <- x$enzyme.primer
   }
@@ -440,7 +440,7 @@ fit.cex.yaxis <- function(ylab, cex.axis.max) {
 update.TRAMP <- function(object, sample.fk=labels(object$samples),
                          grouped=FALSE, ignore=TRUE,
                          delay.rebuild=FALSE,
-                         default.species=NA,
+                         default.species=NULL,
                          filename.fmt="TRAMP_%d.pdf", ...) {
   ## grouped=TRUE is not allowed, because it interferes in a not-nice
   ## way with ignoring matches.

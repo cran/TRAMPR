@@ -2,6 +2,7 @@
 \alias{load.abi}
 \alias{load.abi.create.template}
 \alias{load.abi.create.info}
+\alias{peakscanner.to.genemapper}
 \title{Load ABI Output Files}
 
 \description{These functions help convert data from Applied Biosystems
@@ -13,12 +14,26 @@
   Details of the procedure of this function are given below, and a
   worked example is given in the package vignette; type
   \code{vignette("TRAMPRdemo")} to view it.
+
+  The function \code{peakscanner.to.genemapper} is an experimental
+  function to convert from peakscanner output to abi genemapper output.
+  The peakscanner output is very slightly different in format, and
+  currently \code{load.abi} is very fussy about the input file's
+  structure.  Eventially \code{load.abi} will be made more tolerant, but
+  as an interim solution, run \code{peakscanner.to.genemapper} on your
+  file.  By default, running
+  \code{peakscanner.to.genemapper(myfile.csv)} will produce a file
+  \code{myfile.txt}.  This can then be loaded using \code{load.abi} as
+  described below, specifying \code{myfile.txt} as the \code{file}
+  argument.
 }
 
 \usage{
 load.abi(file, file.template, file.info, primer.translate, ...)
 load.abi.create.template(file, file.template)
 load.abi.create.info(file, file.template, file.info)
+
+peakscanner.to.genemapper(filename, output)
 }
 
 \arguments{
@@ -34,6 +49,12 @@ load.abi.create.info(file, file.template, file.info)
   \item{...}{Additional objects to incorportate
     into a \code{TRAMPsamples} object.  See \code{\link{TRAMPsamples}}
     for details.}
+
+  \item{filename}{In \code{peakscanner.to.genemapper}, the name of the
+    csv file containing output.}
+  \item{output}{In \code{peakscanner.to.genemapper}, the name of the
+    file to be output in abi format (if omitted, this will be
+    automatically generated).}
 }
 
 \details{
