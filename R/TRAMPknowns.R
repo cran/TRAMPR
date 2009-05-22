@@ -551,7 +551,7 @@ build.knowns <- function(d, min.ratio=3, min.comb=NA,
 }
 
 ## _Basic_ indexing method.
-"[.TRAMPknowns" <- function(x, i, ...) {
+"[.TRAMPknowns" <- function(x, i, na.interp=TRUE, ...) {
   valid.TRAMPknowns(x)
   if ( is.numeric(i) ) {
     if ( !all(i %in% labels(x)) )
@@ -563,8 +563,11 @@ build.knowns <- function(d, min.ratio=3, min.comb=NA,
     i[is.na(i)] <- na.interp
     i <- x$info$knowns.pk[i]
   } else stop("Invalid index type")
-  
+
+  ## These generate NOTEs in R CMD CHECK
   x$info <- subset(x$info, knowns.pk %in% i)
   x$data <- subset(x$data, knowns.fk %in% i)
+  ##x$info <- x$info[x$info$knowns.pk %in% i,]
+  ##x$data <- x$data[x$data$knowns.pk %in% i,]
   tidy.TRAMPknowns(x)
 }

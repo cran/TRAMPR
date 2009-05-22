@@ -51,7 +51,7 @@ TRAMPknowns(data, info, cluster.pars=list(), file.pat=NULL,
   Column definitions:
   \itemize{
     \item \code{info}:
-    \describe {
+    \describe{
       \item{\code{knowns.pk}:}{Unique positive integer, used to identify
 	individual knowns (i.e. a \dQuote{primary key}).}
       \item{\code{species}:}{Character, giving species name.}

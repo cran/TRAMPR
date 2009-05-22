@@ -9,8 +9,10 @@
   \code{\link{TRAMPsamples}} and \code{\link{TRAMPknowns}} objects.
 }
 
+% x[i, na.interp=TRUE, ...]
 \usage{
-x[i, na.interp=TRUE, ...]
+\method{[}{TRAMPknowns}(x, i, na.interp=TRUE, ...)
+\method{[}{TRAMPsamples}(x, i, na.interp=TRUE, ...)
 }
 
 \arguments{
