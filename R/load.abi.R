@@ -85,7 +85,8 @@ load.abi <- function(file, file.template, file.info,
   }
 
   i <- match(d$sample.file.name, d.template$sample.file.name)
-  data <- cbind(subset(d.template, select=-sample.file.name)[i,], d)
+  cols <- setdiff(names(d.template), "sample.file.name")
+  data <- cbind(d.template[i,cols], d)
 
   ## Remove cases where sample.index is NA, since these have no way of
   ## grouping together, and orphan data is not allowed (see
@@ -121,9 +122,8 @@ load.abi <- function(file, file.template, file.info,
       warning("sample.index values missing from file.info: ",
               paste(missing, collapse=", "),
               "\nThese have been removed!")
-
-      info <- subset(info, sample.index %in% info.extra$sample.index)
-      data <- subset(data, sample.fk %in% info$sample.pk)
+      info <- subset(info, info$sample.index %in% info.extra$sample.index)
+      data <- subset(data, data$sample.fk %in% info$sample.pk)
     }
 
     unknown <- setdiff(info.extra$sample.index, info$sample.index)
@@ -131,22 +131,22 @@ load.abi <- function(file, file.template, file.info,
       warning("Unknown sample.index values in file.info: ",
               paste(unknown, collapse=", "),
               "\nThese have been ignored!")
-      info.extra <- subset(info.extra, sample.index %in%
+      info.extra <- subset(info.extra,
+                           info.extra$sample.index %in%
                            info$sample.index)
     }
 
     ## Now, do this:
     i <- match(info$sample.index, info.extra$sample.index)
-    info <- cbind(info, subset(info.extra,
-                               select=-sample.index)[i,,drop=FALSE])
+    cols <- setdiff(names(info.extra), "sample.index")
+    info <- cbind(info, info.extra[i,cols,drop=FALSE])
   } else {
     cat("No info file found, will create default.\n")
   }
 
   rownames(info) <- seq(length=nrow(info))
-
   if ( good.sample.index )
-    info <- subset(info, select=-sample.index)
+    info <- info[setdiff(names(info), "sample.index")]
 
   TRAMPsamples(data, info, ...)
 }
@@ -189,7 +189,7 @@ read.abi <- function(file) {
   d <- d[is.data,]
   d$sample.peak <- as.integer(d$sample.peak)
 
-  subset(d, select=-dye.sample.peak)
+  d[setdiff(names(d), "dye.sample.peak")]
 }
 
 ## Peakscanner apparently produces files that are subtly different

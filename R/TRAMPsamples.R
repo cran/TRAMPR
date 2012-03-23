@@ -166,8 +166,8 @@ tidy.TRAMPsamples <- function(x) {
   }  else stop("Invalid index type")
 
   ## These generate NOTEs in R CMD CHECK
-  x$info <- subset(x$info, sample.pk %in% i)
-  x$data <- subset(x$data, sample.fk %in% i)
+  x$info <- subset(x$info, x$info$sample.pk %in% i)
+  x$data <- subset(x$data, x$data$sample.fk %in% i)
   ##x$info <- x$info[x$info$knowns.pk %in% i,]
   ##x$data <- x$data[x$data$knowns.pk %in% i,]
   

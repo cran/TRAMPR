@@ -322,7 +322,8 @@ TRAMP.plotone <- function(x, sample.fk, grouped=FALSE, ignore=FALSE,
   match.fk <- 
     as.integer(names(which(summary(x, ignore=ignore)[
                                         as.character(sample.fk),])))
-  matches.info <- subset(x$knowns$info, knowns.pk %in% match.fk)
+  matches.info <- subset(x$knowns$info,
+                         x$knowns$info$knowns.pk %in% match.fk)
 
   if ( !nrow(matches.info) )
     ylab <- "(No matches)"
@@ -343,7 +344,8 @@ TRAMP.plotone <- function(x, sample.fk, grouped=FALSE, ignore=FALSE,
   }
 
   matches.data <-
-    subset(x$knowns$data, knowns.fk %in% matches.info$knowns.pk)
+    subset(x$knowns$data,
+           x$knowns$data$knowns.fk %in% matches.info$knowns.pk)
   matches.data$code <- classify(matches.data, enzyme.primer)
 
   matches.data$row <-
@@ -363,7 +365,7 @@ TRAMP.plotone <- function(x, sample.fk, grouped=FALSE, ignore=FALSE,
   ## knowns vs. data plot, with the rest for peaks by enzyme/primer
   ## combination.  Set aside p.labels of the horizontal space on the
   ## LHS for group labels (i.e. ylab).
-  layout(matrix(1:(n+1), n+1), height=c(p.top, rep((1-p.top)/n, n)))
+  layout(matrix(1:(n+1), n+1), heights=c(p.top, rep((1-p.top)/n, n)))
   par(oma=c(4, 0, 3, 2) + mar.default, mar=c(.75, 0, 0, 0))
   mai <- par("mai")
   mai[2] <- par("fin")[1]*p.labels

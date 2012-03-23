@@ -565,8 +565,8 @@ build.knowns <- function(d, min.ratio=3, min.comb=NA,
   } else stop("Invalid index type")
 
   ## These generate NOTEs in R CMD CHECK
-  x$info <- subset(x$info, knowns.pk %in% i)
-  x$data <- subset(x$data, knowns.fk %in% i)
+  x$info <- subset(x$info, x$info$knowns.pk %in% i)
+  x$data <- subset(x$data, x$data$knowns.fk %in% i)
   ##x$info <- x$info[x$info$knowns.pk %in% i,]
   ##x$data <- x$data[x$data$knowns.pk %in% i,]
   tidy.TRAMPknowns(x)
