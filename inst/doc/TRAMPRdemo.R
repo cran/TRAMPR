@@ -45,7 +45,7 @@ file.rename("demo_samples_abi_info_full.csv",
 ###################################################
 ### code chunk number 7: TRAMPRdemo.Rnw:131-132
 ###################################################
-soilcore <- read.csv("demo_samples_abi_soilcore.csv")
+soilcore <- read.csv("demo_samples_abi_soilcore.csv", stringsAsFactors = TRUE)
 
 
 ###################################################

@@ -1,5 +1,5 @@
-086bec698792bdd80af25b078e1c7ebd *ChangeLog
-ac086ea108338a2712373cf00c77d92b *DESCRIPTION
+3ae30410cb24b87cf5aa630d9c1e50a6 *ChangeLog
+519f744b2bd62170e86805d222a7893e *DESCRIPTION
 8e8d6aaacc1a118c03e199d39f6268dc *NAMESPACE
 6108cf2e290638dcddb5d10ac8b2d77f *R/TRAMP.R
 f42c65c54676ce7ed1cb04aeda83b697 *R/TRAMPknowns.R
@@ -7,7 +7,8 @@ f42c65c54676ce7ed1cb04aeda83b697 *R/TRAMPknowns.R
 778e1fa7c5c749772b31fdfc58f12f51 *R/load.abi.R
 0d576974dc1ac9bf70b03aab0a184949 *R/read.write.R
 c2bde8615e835b0cd2123587dbd97d3e *R/util.R
-de988410633f625f600be1f5e5cf7715 *build/vignette.rds
+4ae8ca847637adadf029cdd3e8da5a77 *README.md
+0507a127ad319f571ad618279b1a64e7 *build/vignette.rds
 ead77a2ac5bfa69c2282bfe357a8b572 *data/demo.knowns.rda
 3beb6c8a0944d7dce3509145918262ec *data/demo.samples.rda
 671ea7d1c312df34c7a30860bf11a6b5 *inst/CITATION
@@ -15,9 +16,9 @@ ead77a2ac5bfa69c2282bfe357a8b572 *data/demo.knowns.rda
 3166319a285d60fc489eeaf0c81fa02f *inst/demo_samples_abi_info_full.csv
 657cc0e5a8ebfb067c8d22618f72cb60 *inst/demo_samples_abi_soilcore.csv
 370df9fdf2f784d41c46a2e05a35580f *inst/demo_samples_abi_template_full.csv
-a1a6279c15e7d5d97cfc7daffe8df1ea *inst/doc/TRAMPRdemo.R
-910044ec88d4051696fb1ad400b46a7b *inst/doc/TRAMPRdemo.Rnw
-69731d659c0744a1cac3c06aaa85d254 *inst/doc/TRAMPRdemo.pdf
+6e4e72d53a69e58a1669f8e1e81549dc *inst/doc/TRAMPRdemo.R
+417384795d9dd210e785831c68f06a8e *inst/doc/TRAMPRdemo.Rnw
+31e8018cd91e6558ff3ec8a8a63e18c2 *inst/doc/TRAMPRdemo.pdf
 431ddafedf92be382ddd3aa59add4f43 *man/TRAMP.Rd
 dcdaec08b50f601b02b7651e2be162c6 *man/TRAMPR-package.Rd
 3be261d778ee2b372d5a5a494a005d23 *man/TRAMPindexing.Rd
@@ -43,4 +44,4 @@ e4039b3fa4854a0f2f06b867f27ac25e *man/read.write.Rd
 ec1089e2148e68a93f05df7f714fb128 *man/remove.TRAMP.match.Rd
 55b57381fddd9ef36acc63e4f819a9b9 *man/summary.TRAMP.Rd
 4527c89e3a7aca9f57f979c516a0406f *man/update.TRAMP.Rd
-910044ec88d4051696fb1ad400b46a7b *vignettes/TRAMPRdemo.Rnw
+417384795d9dd210e785831c68f06a8e *vignettes/TRAMPRdemo.Rnw
