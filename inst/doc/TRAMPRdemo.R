@@ -153,7 +153,7 @@ identical(demo.knowns, fit$knowns)
 ###################################################
 ### code chunk number 24: TRAMPRdemo.Rnw:310-312 (eval = FALSE)
 ###################################################
-## samples <- setdiff(labels(demo.samples), labels(demo.knowns)) 
+## samples <- setdiff(labels(demo.samples), labels(demo.knowns))
 ## plot(fit, samples)
 
 
